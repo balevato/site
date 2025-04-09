@@ -1,0 +1,78 @@
+<html><head>
+  <title>alevato</title>
+  <style>
+    body {
+      margin: 0;
+      position: relative;
+    }
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;
+    }
+    .email-link {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 14pt;
+      color: #000000;
+      text-decoration: none;
+      z-index: 1;
+    }
+    #logo {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 1;
+      width: 100px;
+      height: 100px;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+  <a class="email-link" href="mailto:balevato@gmail.com">fale</a>
+  <div id="image-container">
+    <img src="image/image1.jpg">
+    <img src="image/image2.jpg">
+    <img src="image/image3.jpg">
+    <img src="image/image4.jpg">
+    <img src="image/image5.jpg">
+    <img src="image/image6.jpg">
+    <img src="image/image8.jpg">
+    <img src="image/image9.jpg">
+    <img src="image/image10.jpg">
+    <img src="image/image11.jpg">
+    <img src="image/image12.jpg">
+    <img src="image/image13.jpg">
+    <img src="image/image14.jpg">
+    <img src="image/image15.jpg">
+    <img src="image/image16.jpg">
+    <img src="image/Nina-Becker-Acrilico-01.jpg">
+    <img src="image/Santoro.gif">
+  </div>
+  <img id="logo" src="logo.svg" alt="Logo">
+
+  <script>
+    // create an infinite scrolling effect
+    window.addEventListener('scroll', () => {
+      const lastImage = document.querySelector('#image-container img:last-child');
+      const lastImageOffset = lastImage.offsetTop + lastImage.clientHeight;
+      const pageOffset = window.pageYOffset + window.innerHeight;
+
+      if (pageOffset > lastImageOffset - 100) {
+        const imageContainer = document.getElementById('image-container');
+        const imageElements = Array.from(imageContainer.getElementsByTagName('img'));
+        imageElements.forEach(imageElement => {
+          const newImageElement = document.createElement('img');
+          newImageElement.src = imageElement.src;
+          imageContainer.appendChild(newImageElement);
+        });
+      }
+    });
+  </script>
+
+
+</body></html>
